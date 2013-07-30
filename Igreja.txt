@@ -1,0 +1,18 @@
+*Uma das coisa que o pastor me pediu é que o 
+banco gerasse relatório com quantidade geral 
+de membros e frequentadores, ou seja cadastrar 
+também os "Visitantes/Frequentadores"
+
+*Ele gostaria de um outro registro como  uma 
+chamada de escola para marcar quem estava nos 
+cultos e que o banco gerasse um alerta dizendo 
+"Fulano tem 3 domingos que não aparece"
+
+*Outro tipo de registro são as visitas nos lares, 
+para não visitar muitas vezes o mesmo lar sendo 
+que outros não foram visitados;
+
+* Além do registro básico que te falei como 
+ter o endereço e telefone dos membros data de  
+nascimento e ser informado quando aniversario destes,
+ e coisas de banco de dados
