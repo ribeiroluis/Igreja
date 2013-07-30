@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Igreja.Interface;
+using Igreja.BD.BDIgrejaDataSetTableAdapters;
 
 namespace Igreja
 {
@@ -16,6 +17,13 @@ namespace Igreja
         public frmMenu()
         {
             InitializeComponent();
+            CIDADETableAdapter cid = new CIDADETableAdapter();
+            cid.Insert("BETIM", "MG");
+            cid.Insert("BELO HORIZONTE", "MG");
+            cid.Insert("CONTAGEM", "MG");
+
+
+
         }
 
         private void cadastrarPessoaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -27,3 +35,4 @@ namespace Igreja
         }
     }
 }
+

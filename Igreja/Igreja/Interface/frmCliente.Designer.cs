@@ -42,13 +42,23 @@
             this.txBairro = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbCidade = new System.Windows.Forms.ComboBox();
             this.cIDADEBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bDIgrejaDataSet = new Igreja.BD.BDIgrejaDataSet();
             this.cIDADETableAdapter = new Igreja.BD.BDIgrejaDataSetTableAdapters.CIDADETableAdapter();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rbtnNao = new System.Windows.Forms.RadioButton();
+            this.rbtnSim = new System.Windows.Forms.RadioButton();
+            this.btnIncluir = new System.Windows.Forms.Button();
+            this.txEmail = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txTelFixo = new System.Windows.Forms.MaskedTextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txTelCel = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.cIDADEBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bDIgrejaDataSet)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -164,17 +174,17 @@
             this.label7.TabIndex = 0;
             this.label7.Text = "Cidade";
             // 
-            // comboBox1
+            // cbCidade
             // 
-            this.comboBox1.DataSource = this.cIDADEBindingSource;
-            this.comboBox1.DisplayMember = "NOME";
-            this.comboBox1.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(330, 176);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(217, 26);
-            this.comboBox1.TabIndex = 7;
-            this.comboBox1.ValueMember = "IDCIDADE";
+            this.cbCidade.DataSource = this.cIDADEBindingSource;
+            this.cbCidade.DisplayMember = "NOME";
+            this.cbCidade.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbCidade.FormattingEnabled = true;
+            this.cbCidade.Location = new System.Drawing.Point(330, 176);
+            this.cbCidade.Name = "cbCidade";
+            this.cbCidade.Size = new System.Drawing.Size(217, 26);
+            this.cbCidade.TabIndex = 7;
+            this.cbCidade.ValueMember = "IDCIDADE";
             // 
             // cIDADEBindingSource
             // 
@@ -192,12 +202,101 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.rbtnNao);
+            this.groupBox1.Controls.Add(this.rbtnSim);
             this.groupBox1.Location = new System.Drawing.Point(553, 157);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(172, 45);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Membro";
+            // 
+            // rbtnNao
+            // 
+            this.rbtnNao.AutoSize = true;
+            this.rbtnNao.Location = new System.Drawing.Point(93, 19);
+            this.rbtnNao.Name = "rbtnNao";
+            this.rbtnNao.Size = new System.Drawing.Size(46, 20);
+            this.rbtnNao.TabIndex = 0;
+            this.rbtnNao.TabStop = true;
+            this.rbtnNao.Text = "Não";
+            this.rbtnNao.UseVisualStyleBackColor = true;
+            // 
+            // rbtnSim
+            // 
+            this.rbtnSim.AutoSize = true;
+            this.rbtnSim.Location = new System.Drawing.Point(20, 19);
+            this.rbtnSim.Name = "rbtnSim";
+            this.rbtnSim.Size = new System.Drawing.Size(43, 20);
+            this.rbtnSim.TabIndex = 0;
+            this.rbtnSim.TabStop = true;
+            this.rbtnSim.Text = "Sim";
+            this.rbtnSim.UseVisualStyleBackColor = true;
+            // 
+            // btnIncluir
+            // 
+            this.btnIncluir.Image = global::Igreja.Properties.Resources.Button_Add_icon1;
+            this.btnIncluir.Location = new System.Drawing.Point(608, 223);
+            this.btnIncluir.Name = "btnIncluir";
+            this.btnIncluir.Size = new System.Drawing.Size(47, 39);
+            this.btnIncluir.TabIndex = 12;
+            this.btnIncluir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnIncluir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnIncluir.UseVisualStyleBackColor = true;
+            this.btnIncluir.Click += new System.EventHandler(this.btnIncluir_Click);
+            // 
+            // txEmail
+            // 
+            this.txEmail.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txEmail.Location = new System.Drawing.Point(15, 236);
+            this.txEmail.Name = "txEmail";
+            this.txEmail.Size = new System.Drawing.Size(290, 26);
+            this.txEmail.TabIndex = 9;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(12, 217);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(33, 16);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "Email";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(308, 217);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(73, 16);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "Telefone Fixo";
+            // 
+            // txTelFixo
+            // 
+            this.txTelFixo.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txTelFixo.Location = new System.Drawing.Point(311, 236);
+            this.txTelFixo.Mask = "(99) 0000-0000";
+            this.txTelFixo.Name = "txTelFixo";
+            this.txTelFixo.Size = new System.Drawing.Size(117, 26);
+            this.txTelFixo.TabIndex = 10;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(438, 217);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(86, 16);
+            this.label10.TabIndex = 0;
+            this.label10.Text = "Telefone Celular";
+            // 
+            // txTelCel
+            // 
+            this.txTelCel.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txTelCel.Location = new System.Drawing.Point(441, 236);
+            this.txTelCel.Mask = "(99) 0000-0000";
+            this.txTelCel.Name = "txTelCel";
+            this.txTelCel.Size = new System.Drawing.Size(117, 26);
+            this.txTelCel.TabIndex = 11;
             // 
             // frmCliente
             // 
@@ -207,14 +306,21 @@
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(800, 600);
             this.ControlBox = false;
+            this.Controls.Add(this.btnIncluir);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cbCidade);
+            this.Controls.Add(this.txTelCel);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.txTelFixo);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.txDataNascimento);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label7);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
+            this.Controls.Add(this.txEmail);
             this.Controls.Add(this.txBairro);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txComplemento);
@@ -229,6 +335,8 @@
             this.Load += new System.EventHandler(this.frmCliente_Load);
             ((System.ComponentModel.ISupportInitialize)(this.cIDADEBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bDIgrejaDataSet)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -249,11 +357,20 @@
         private System.Windows.Forms.TextBox txBairro;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbCidade;
         private BD.BDIgrejaDataSet bDIgrejaDataSet;
         private System.Windows.Forms.BindingSource cIDADEBindingSource;
         private BD.BDIgrejaDataSetTableAdapters.CIDADETableAdapter cIDADETableAdapter;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.RadioButton rbtnNao;
+        private System.Windows.Forms.RadioButton rbtnSim;
+        private System.Windows.Forms.Button btnIncluir;
+        private System.Windows.Forms.TextBox txEmail;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.MaskedTextBox txTelFixo;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.MaskedTextBox txTelCel;
 
 
     }
