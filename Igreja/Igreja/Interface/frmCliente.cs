@@ -13,10 +13,13 @@ namespace Igreja.Interface
     public partial class frmCliente : frmModelo
     {
         Pessoa p;
+        public bool status;
 
         public frmCliente()
         {
             InitializeComponent();
+            status = true;            
+            
         }
 
         private void frmCliente_Load(object sender, EventArgs e)
