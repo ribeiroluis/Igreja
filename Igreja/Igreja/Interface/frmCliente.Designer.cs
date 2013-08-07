@@ -56,9 +56,12 @@
             this.txTelFixo = new System.Windows.Forms.MaskedTextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.txTelCel = new System.Windows.Forms.MaskedTextBox();
+            this.Dicas = new System.Windows.Forms.ToolTip(this.components);
+            this.dtgPessoas = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.cIDADEBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bDIgrejaDataSet)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgPessoas)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -77,6 +80,8 @@
             this.txNome.Name = "txNome";
             this.txNome.Size = new System.Drawing.Size(587, 26);
             this.txNome.TabIndex = 1;
+            this.Dicas.SetToolTip(this.txNome, "Digite o nome e pressione enter");
+            this.txNome.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txNome_KeyDown);
             // 
             // label2
             // 
@@ -98,16 +103,19 @@
             // 
             // txDataNascimento
             // 
+            this.txDataNascimento.Enabled = false;
             this.txDataNascimento.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txDataNascimento.Location = new System.Drawing.Point(608, 58);
             this.txDataNascimento.Mask = "00/00/0000";
             this.txDataNascimento.Name = "txDataNascimento";
             this.txDataNascimento.Size = new System.Drawing.Size(117, 26);
             this.txDataNascimento.TabIndex = 2;
+            this.Dicas.SetToolTip(this.txDataNascimento, "Digite a data e pressione enter");
             this.txDataNascimento.ValidatingType = typeof(System.DateTime);
             // 
             // txLogradouro
             // 
+            this.txLogradouro.Enabled = false;
             this.txLogradouro.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txLogradouro.Location = new System.Drawing.Point(15, 119);
             this.txLogradouro.Name = "txLogradouro";
@@ -116,6 +124,7 @@
             // 
             // txNumero
             // 
+            this.txNumero.Enabled = false;
             this.txNumero.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txNumero.Location = new System.Drawing.Point(515, 119);
             this.txNumero.Name = "txNumero";
@@ -133,6 +142,7 @@
             // 
             // txComplemento
             // 
+            this.txComplemento.Enabled = false;
             this.txComplemento.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txComplemento.Location = new System.Drawing.Point(608, 119);
             this.txComplemento.Name = "txComplemento";
@@ -150,6 +160,7 @@
             // 
             // txBairro
             // 
+            this.txBairro.Enabled = false;
             this.txBairro.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txBairro.Location = new System.Drawing.Point(15, 176);
             this.txBairro.Name = "txBairro";
@@ -178,6 +189,7 @@
             // 
             this.cbCidade.DataSource = this.cIDADEBindingSource;
             this.cbCidade.DisplayMember = "NOME";
+            this.cbCidade.Enabled = false;
             this.cbCidade.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbCidade.FormattingEnabled = true;
             this.cbCidade.Location = new System.Drawing.Point(330, 176);
@@ -204,6 +216,7 @@
             // 
             this.groupBox1.Controls.Add(this.rbtnNao);
             this.groupBox1.Controls.Add(this.rbtnSim);
+            this.groupBox1.Enabled = false;
             this.groupBox1.Location = new System.Drawing.Point(553, 157);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(172, 45);
@@ -235,6 +248,7 @@
             // 
             // btnIncluir
             // 
+            this.btnIncluir.Enabled = false;
             this.btnIncluir.Image = global::Igreja.Properties.Resources.Button_Add_icon1;
             this.btnIncluir.Location = new System.Drawing.Point(608, 223);
             this.btnIncluir.Name = "btnIncluir";
@@ -247,6 +261,7 @@
             // 
             // txEmail
             // 
+            this.txEmail.Enabled = false;
             this.txEmail.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txEmail.Location = new System.Drawing.Point(15, 236);
             this.txEmail.Name = "txEmail";
@@ -273,6 +288,7 @@
             // 
             // txTelFixo
             // 
+            this.txTelFixo.Enabled = false;
             this.txTelFixo.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txTelFixo.Location = new System.Drawing.Point(311, 236);
             this.txTelFixo.Mask = "(99) 0000-0000";
@@ -291,12 +307,31 @@
             // 
             // txTelCel
             // 
+            this.txTelCel.Enabled = false;
             this.txTelCel.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txTelCel.Location = new System.Drawing.Point(441, 236);
             this.txTelCel.Mask = "(99) 0000-0000";
             this.txTelCel.Name = "txTelCel";
             this.txTelCel.Size = new System.Drawing.Size(117, 26);
             this.txTelCel.TabIndex = 11;
+            // 
+            // Dicas
+            // 
+            this.Dicas.AutomaticDelay = 250;
+            this.Dicas.BackColor = System.Drawing.Color.Yellow;
+            // 
+            // dtgPessoas
+            // 
+            this.dtgPessoas.AllowUserToAddRows = false;
+            this.dtgPessoas.AllowUserToDeleteRows = false;
+            this.dtgPessoas.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dtgPessoas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgPessoas.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dtgPessoas.Location = new System.Drawing.Point(0, 285);
+            this.dtgPessoas.Name = "dtgPessoas";
+            this.dtgPessoas.ReadOnly = true;
+            this.dtgPessoas.Size = new System.Drawing.Size(800, 315);
+            this.dtgPessoas.TabIndex = 13;
             // 
             // frmCliente
             // 
@@ -306,6 +341,7 @@
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(800, 600);
             this.ControlBox = false;
+            this.Controls.Add(this.dtgPessoas);
             this.Controls.Add(this.btnIncluir);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.cbCidade);
@@ -337,6 +373,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bDIgrejaDataSet)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgPessoas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -371,6 +408,8 @@
         private System.Windows.Forms.MaskedTextBox txTelFixo;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.MaskedTextBox txTelCel;
+        private System.Windows.Forms.ToolTip Dicas;
+        private System.Windows.Forms.DataGridView dtgPessoas;
 
 
     }

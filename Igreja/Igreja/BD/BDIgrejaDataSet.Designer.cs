@@ -3224,13 +3224,25 @@ namespace Igreja.BD.BDIgrejaDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlServerCe.SqlCeCommand[1];
+            this._commandCollection = new global::System.Data.SqlServerCe.SqlCeCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlServerCe.SqlCeCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT [IDPESSOA], [NOME], [ENDERECO], [NRUA], [COMPLEMENTO], [BAIRRO], [TELCELUL" +
                 "AR], [TELFIXO], [EMAIL], [DATANASCIMENTO], [IDCIDADE], [MEBROFREQUENTADOR] FROM " +
                 "[PESSOA]";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlServerCe.SqlCeCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT        IDPESSOA, NOME, ENDERECO, NRUA, COMPLEMENTO, BAIRRO, TELCELULAR, TE" +
+                "LFIXO, EMAIL, DATANASCIMENTO, IDCIDADE, \r\n                         MEBROFREQUENT" +
+                "ADOR\r\nFROM            PESSOA\r\nWHERE        (NOME LIKE @nome)";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@nome", global::System.Data.SqlDbType.NVarChar, 200, global::System.Data.ParameterDirection.Input, true, 0, 0, "NOME", global::System.Data.DataRowVersion.Current, null));
+            this._commandCollection[2] = new global::System.Data.SqlServerCe.SqlCeCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT        IDPESSOA, NOME, DATANASCIMENTO, TELFIXO, TELCELULAR, EMAIL\r\nFROM   " +
+                "         PESSOA";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3252,6 +3264,34 @@ namespace Igreja.BD.BDIgrejaDataSetTableAdapters {
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual BDIgrejaDataSet.PESSOADataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            BDIgrejaDataSet.PESSOADataTable dataTable = new BDIgrejaDataSet.PESSOADataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual BDIgrejaDataSet.PESSOADataTable PesquisaPessoaPorNome(string nome) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((nome == null)) {
+                throw new global::System.ArgumentNullException("nome");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(nome));
+            }
+            BDIgrejaDataSet.PESSOADataTable dataTable = new BDIgrejaDataSet.PESSOADataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual BDIgrejaDataSet.PESSOADataTable RetornaListaMembros() {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             BDIgrejaDataSet.PESSOADataTable dataTable = new BDIgrejaDataSet.PESSOADataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

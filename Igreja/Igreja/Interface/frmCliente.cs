@@ -26,7 +26,8 @@ namespace Igreja.Interface
         {
             // TODO: esta linha de código carrega dados na tabela 'bDIgrejaDataSet.CIDADE'. Você pode movê-la ou removê-la conforme necessário.
             this.cIDADETableAdapter.Fill(this.bDIgrejaDataSet.CIDADE);
-
+            p = new Pessoa();
+            dtgPessoas.DataSource = p.ListaNomes();
         }
 
         private void btnIncluir_Click(object sender, EventArgs e)
@@ -56,6 +57,51 @@ namespace Igreja.Interface
                 MessageBox.Show("Erro ao gravar.");
 
 
+        }
+
+        private bool PesquisaCaracter(string texto)
+        {
+            try
+            {
+                foreach (var caractere in texto)
+                {
+                    int aux = Convert.ToInt16(caractere);
+                    if ((aux < 65 || aux > 90) && aux != 32)
+                    {
+                        return true;
+                    }                    
+                }
+                return false;
+            }
+            catch (Exception err)
+            {
+                return false;
+                MessageBox.Show(err.Message);
+            }
+        }
+
+        private void txNome_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (PesquisaCaracter(txNome.Text.ToUpper()))
+                    MessageBox.Show("Não coloque caracteres especiais ~´'ç");
+                else
+                {
+                    p = new Pessoa();
+                    List<Pessoa> Lista = p.PesquisarPessoa(txNome.Text);
+                    if (Lista.Count > 0)
+                    {
+                        MessageBox.Show("Verifique já há cadastro.");
+                    }
+                    else
+                    {
+                        txDataNascimento.Enabled = true;
+                        this.ActiveControl = txDataNascimento;
+                    }
+                }
+
+            }
         }
 
     }
